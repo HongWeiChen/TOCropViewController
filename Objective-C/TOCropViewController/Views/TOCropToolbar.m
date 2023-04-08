@@ -348,7 +348,7 @@
     if (_clampButtonHidden == clampButtonHidden)
         return;
     
-//    _clampButtonHidden = clampButtonHidden;
+    _clampButtonHidden = clampButtonHidden;
     [self setNeedsLayout];
 }
 
@@ -370,7 +370,7 @@
     if (_rotateCounterclockwiseButtonHidden == rotateButtonHidden)
         return;
     
-//    _rotateCounterclockwiseButtonHidden = rotateButtonHidden;
+    _rotateCounterclockwiseButtonHidden = rotateButtonHidden;
     [self setNeedsLayout];
 }
 
