@@ -561,7 +561,7 @@
 
 + (UIImage *)rotateCWImage
 {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerBundle" withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerAssetBundle" withExtension:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
     return [UIImage imageWithContentsOfFile:[bundle pathForResource:@"rotation" ofType:@"png"]];
     if (@available(iOS 13.0, *)) {
@@ -583,7 +583,7 @@
 
 + (UIImage *)resetImage
 {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerBundle" withExtension:@"bundle"];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerAssetBundle" withExtension:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
     return [UIImage imageWithContentsOfFile:[bundle pathForResource:@"refresh" ofType:@"png"]];
     if (@available(iOS 13.0, *)) {
