@@ -120,40 +120,51 @@
     _clampButton.tintColor = [UIColor whiteColor];
     [_clampButton setImage:[TOCropToolbar clampImage] forState:UIControlStateNormal];
     [_clampButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_clampButton];
+//    [self addSubview:_clampButton];
     
     _rotateCounterclockwiseButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _rotateCounterclockwiseButton.contentMode = UIViewContentModeCenter;
     _rotateCounterclockwiseButton.tintColor = [UIColor whiteColor];
     [_rotateCounterclockwiseButton setImage:[TOCropToolbar rotateCCWImage] forState:UIControlStateNormal];
     [_rotateCounterclockwiseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_rotateCounterclockwiseButton];
+//    [self addSubview:_rotateCounterclockwiseButton];
     
     _rotateClockwiseButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _rotateClockwiseButton.contentMode = UIViewContentModeCenter;
-    _rotateClockwiseButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    _rotateClockwiseButton.tintColor = [UIColor whiteColor];
-    [_rotateClockwiseButton setTitle:@"旋转" forState:UIControlStateNormal];
-    [_rotateClockwiseButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
-    [_rotateClockwiseButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -28, 0, 0)];
-    [_rotateClockwiseButton setImage:[TOCropToolbar rotateCWImage] forState:UIControlStateNormal];
     [_rotateClockwiseButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_rotateClockwiseButton];
+    {
+        UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[TOCropToolbar rotateCWImage]];
+        iconImageView.frame = CGRectMake(0, 0, 20, 20);
+        iconImageView.userInteractionEnabled = NO;
+        [_rotateClockwiseButton addSubview:iconImageView];
+        
+        UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 32, 20)];
+        textLabel.font = [UIFont systemFontOfSize:14.0f];
+        textLabel.textColor = UIColor.whiteColor;
+        textLabel.text = @"旋转";
+        textLabel.userInteractionEnabled = NO;
+        [_rotateClockwiseButton addSubview:textLabel];
+    }
 
     _resetButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _resetButton.contentMode = UIViewContentModeCenter;
-    _resetButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [_resetButton setTitle:@"还原" forState:UIControlStateNormal];
-    [_resetButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
-    _resetButton.tintColor = [UIColor whiteColor];
-    [_resetButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -28, 0, 0)];
     _resetButton.enabled = NO;
-    [_resetButton setImage:[TOCropToolbar resetImage] forState:UIControlStateNormal];
     [_resetButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    _resetButton.accessibilityLabel = NSLocalizedStringFromTableInBundle(@"Reset",
-                                                                         @"TOCropViewControllerLocalizable",
-                                                                         resourceBundle,
-                                                                         nil);
+    {
+        UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[TOCropToolbar resetImage]];
+        iconImageView.frame = CGRectMake(0, 0, 20, 20);
+        iconImageView.userInteractionEnabled = NO;
+        [_resetButton addSubview:iconImageView];
+        
+        UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 32, 20)];
+        textLabel.font = [UIFont systemFontOfSize:14.0f];
+        textLabel.textColor = UIColor.whiteColor;
+        textLabel.text = @"还原";
+        textLabel.userInteractionEnabled = NO;
+        [_resetButton addSubview:textLabel];
+    }
+
     [self addSubview:_resetButton];
 }
 
@@ -298,8 +309,7 @@
         NSInteger count = buttons.count;
         for (NSInteger i = 0; i < count; i++) {
             UIButton *button = buttons[i];
-            CGSize buttonSize = [button systemLayoutSizeFittingSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
-            buttonSize.height = 20;
+            CGSize buttonSize = CGSizeMake(52, 20);
             // 先写死吧，没得办法都是需求
             CGPoint buttonOrigin = CGPointMake(0, 0);
             if (i == 0) {
@@ -347,8 +357,7 @@
 - (void)setClampButtonHidden:(BOOL)clampButtonHidden {
     if (_clampButtonHidden == clampButtonHidden)
         return;
-    _clampButtonHidden = YES;
-//    _clampButtonHidden = clampButtonHidden;
+    _clampButtonHidden = clampButtonHidden;
     [self setNeedsLayout];
 }
 
@@ -369,8 +378,7 @@
 {
     if (_rotateCounterclockwiseButtonHidden == rotateButtonHidden)
         return;
-    _rotateCounterclockwiseButtonHidden = YES;
-//    _rotateCounterclockwiseButtonHidden = rotateButtonHidden;
+    _rotateCounterclockwiseButtonHidden = rotateButtonHidden;
     [self setNeedsLayout];
 }
 
@@ -561,9 +569,9 @@
 
 + (UIImage *)rotateCWImage
 {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerAssetBundle" withExtension:@"bundle"];
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-    return [UIImage imageWithContentsOfFile:[bundle pathForResource:@"rotation" ofType:@"png"]];
+    NSBundle *resourceBundle = TO_CROP_VIEW_RESOURCE_BUNDLE_FOR_OBJECT(self);
+    NSString *file = [resourceBundle pathForResource:@"rotation" ofType:@"png"];
+    return [UIImage imageWithContentsOfFile:file];
     if (@available(iOS 13.0, *)) {
         return [[UIImage systemImageNamed:@"rotate.right.fill"
                         withConfiguration:[UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightSemibold]]
@@ -583,9 +591,9 @@
 
 + (UIImage *)resetImage
 {
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerAssetBundle" withExtension:@"bundle"];
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-    return [UIImage imageWithContentsOfFile:[bundle pathForResource:@"refresh" ofType:@"png"]];
+    NSBundle *resourceBundle = TO_CROP_VIEW_RESOURCE_BUNDLE_FOR_OBJECT(self);
+    NSString *file = [resourceBundle pathForResource:@"refresh" ofType:@"png"];
+    return [UIImage imageWithContentsOfFile:file];
     if (@available(iOS 13.0, *)) {
         return [[UIImage systemImageNamed:@"arrow.counterclockwise"
                        withConfiguration:[UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightSemibold]]
