@@ -28,7 +28,7 @@
 #import "TOCroppedImageAttributes.h"
 
 static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
-static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
+static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f + 66.0f;
 
 @interface TOCropViewController () <UIActionSheetDelegate, UIViewControllerTransitioningDelegate, TOCropViewDelegate>
 
@@ -1086,6 +1086,8 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 {
     if (!_toolbar) {
         _toolbar = [[TOCropToolbar alloc] initWithFrame:CGRectZero];
+        _toolbar.clampButtonHidden = YES;
+        _toolbar.rotateCounterclockwiseButtonHidden = YES;
         [self.view addSubview:_toolbar];
     }
     return _toolbar;
