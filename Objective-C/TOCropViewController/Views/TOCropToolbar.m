@@ -347,7 +347,7 @@
 - (void)setClampButtonHidden:(BOOL)clampButtonHidden {
     if (_clampButtonHidden == clampButtonHidden)
         return;
-    
+    _clampButtonHidden = YES;
 //    _clampButtonHidden = clampButtonHidden;
     [self setNeedsLayout];
 }
@@ -369,7 +369,7 @@
 {
     if (_rotateCounterclockwiseButtonHidden == rotateButtonHidden)
         return;
-    
+    _rotateCounterclockwiseButtonHidden = YES;
 //    _rotateCounterclockwiseButtonHidden = rotateButtonHidden;
     [self setNeedsLayout];
 }
@@ -561,7 +561,9 @@
 
 + (UIImage *)rotateCWImage
 {
-    return [UIImage imageNamed:@"rotation"];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerBundle" withExtension:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
+    return [UIImage imageWithContentsOfFile:[bundle pathForResource:@"rotation" ofType:@"png"]];
     if (@available(iOS 13.0, *)) {
         return [[UIImage systemImageNamed:@"rotate.right.fill"
                         withConfiguration:[UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightSemibold]]
@@ -581,7 +583,9 @@
 
 + (UIImage *)resetImage
 {
-    return [UIImage imageNamed:@"refresh"];
+    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"TOCropViewControllerBundle" withExtension:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
+    return [UIImage imageWithContentsOfFile:[bundle pathForResource:@"refresh" ofType:@"png"]];
     if (@available(iOS 13.0, *)) {
         return [[UIImage systemImageNamed:@"arrow.counterclockwise"
                        withConfiguration:[UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightSemibold]]

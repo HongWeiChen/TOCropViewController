@@ -195,7 +195,6 @@
 		22C3C5551AC8CA4900E86280 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		22C3C5561AC8CA5000E86280 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		22D83E74279D951200CF0D8E /* CropViewController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CropViewController.podspec; sourceTree = "<group>"; };
-		22D83E75279D951200CF0D8E /* TOCropViewController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = TOCropViewController.podspec; sourceTree = "<group>"; };
 		22D83E76279D951200CF0D8E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		22D83E77279D951200CF0D8E /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		22DB4D831B234CFA008B8466 /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
@@ -219,6 +218,7 @@
 		6AE313511C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		72B9DCDC25763340006E160C /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		88BBE90E22C206340073D22A /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A7221A6F29E18A7F00A2767E /* TTOCropViewController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = TTOCropViewController.podspec; sourceTree = "<group>"; };
 		A72283CA29E15CC000B3C227 /* rotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotation.png; sourceTree = "<group>"; };
 		A72283CF29E15E1600B3C227 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		A93782CF214A55F900CAE7EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 				22D83E77279D951200CF0D8E /* CHANGELOG.md */,
 				22D83E76279D951200CF0D8E /* README.md */,
 				22D83E74279D951200CF0D8E /* CropViewController.podspec */,
-				22D83E75279D951200CF0D8E /* TOCropViewController.podspec */,
+				A7221A6F29E18A7F00A2767E /* TTOCropViewController.podspec */,
 			);
 			sourceTree = "<group>";
 		};
