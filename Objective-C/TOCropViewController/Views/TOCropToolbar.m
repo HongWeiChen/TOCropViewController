@@ -246,17 +246,17 @@
 #endif
                 
         NSMutableArray *buttonsInOrderHorizontally = [NSMutableArray new];
-        if (!self.rotateCounterclockwiseButtonHidden) {
-            [buttonsInOrderHorizontally addObject:self.rotateCounterclockwiseButton];
-        }
+//        if (!self.rotateCounterclockwiseButtonHidden) {
+//            [buttonsInOrderHorizontally addObject:self.rotateCounterclockwiseButton];
+//        }
         
         if (!self.resetButtonHidden) {
             [buttonsInOrderHorizontally addObject:self.resetButton];
         }
         
-        if (!self.clampButtonHidden) {
-            [buttonsInOrderHorizontally addObject:self.clampButton];
-        }
+//        if (!self.clampButtonHidden) {
+//            [buttonsInOrderHorizontally addObject:self.clampButton];
+//        }
         
         if (!self.rotateClockwiseButtonHidden) {
             [buttonsInOrderHorizontally addObject:self.rotateClockwiseButton];
@@ -282,17 +282,17 @@
 #endif
                 
         NSMutableArray *buttonsInOrderVertically = [NSMutableArray new];
-        if (!self.rotateCounterclockwiseButtonHidden) {
-            [buttonsInOrderVertically addObject:self.rotateCounterclockwiseButton];
-        }
+//        if (!self.rotateCounterclockwiseButtonHidden) {
+//            [buttonsInOrderVertically addObject:self.rotateCounterclockwiseButton];
+//        }
         
         if (!self.resetButtonHidden) {
             [buttonsInOrderVertically addObject:self.resetButton];
         }
         
-        if (!self.clampButtonHidden) {
-            [buttonsInOrderVertically addObject:self.clampButton];
-        }
+//        if (!self.clampButtonHidden) {
+//            [buttonsInOrderVertically addObject:self.clampButton];
+//        }
         
         if (!self.rotateClockwiseButtonHidden) {
             [buttonsInOrderVertically addObject:self.rotateClockwiseButton];
